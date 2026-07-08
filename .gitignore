@@ -1,0 +1,9 @@
+# Compiled Java class files
+*.class
+src/main/java/com/dpi/*.class
+
+# Packet capture files (too large for GitHub)
+*.pcap
+
+# VS Code settings
+.vscode/
