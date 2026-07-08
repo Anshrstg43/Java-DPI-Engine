@@ -1,7 +1,6 @@
 Java Deep Packet Inspection (DPI) Engine :
 A high-performance, multi-threaded, stateful firewall and Deep Packet Inspection (DPI) engine implemented entirely in Java. This project processes raw .pcap network traffic files, tracks connection states, extracts application-layer data (like TLS SNI hostnames), and applies dynamic firewall blocking rules.
 
-Originally modeled after enterprise C++ DPI architectures, this Java port utilizes lock-free concepts, concurrent data structures, and raw byte manipulation (java.nio.ByteBuffer) to achieve optimal throughput.
 
 🚀 Features: 
 Multi-Threaded Architecture: Utilizes a Producer-Consumer model with dedicated Load Balancer (LB) and Fast Path (FP) threads.
@@ -58,6 +57,7 @@ A sample .pcap file containing network traffic (e.g., test_dpi.pcap).
 Navigate to the root directory of the project and compile all Java files:
 
 javac src/main/java/com/dpi/*.java
+
 2. Configure Firewall Rules
 Create a rules.txt file in the root directory to define what the firewall should drop.
 
@@ -79,6 +79,7 @@ java -cp src/main/java com.dpi.DpiEngine test_dpi.pcap output.pcap --lbs 4 --fps
 📊 Sample Output :
 Upon successful execution, the engine generates an ASCII statistics report detailing the packet processing and connection distributions:
 
+```text
 ╔══════════════════════════════════════════════════════════════╗
 ║                    DPI ENGINE STATISTICS                     ║
 ╠══════════════════════════════════════════════════════════════╣
@@ -93,6 +94,8 @@ Upon successful execution, the engine generates an ASCII statistics report detai
 ║   Dropped/Blocked:               2                           ║
 ║   Drop Rate:                  2.60%                          ║
 ╚══════════════════════════════════════════════════════════════╝
+
+```text
 👤 Author
 Anshul Rastogi
 Built for advanced networking and systems architecture study.
